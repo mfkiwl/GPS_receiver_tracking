@@ -9,7 +9,7 @@ function shift = DLL (I_E_sum, Q_E_sum, I_L_sum, Q_L_sum, satellite_number, samp
         fprintf (1, 'satellite_index = %i, NaN avoided\n', satellite_number);
     end
 
-    fprintf (1, 'satellite_index = %i, d = %i\n', satellite_number, d);
+    %fprintf (1, 'satellite_index = %i, d = %i\n', satellite_number, d);
 
     % shift calculation
     shift = round (d * 0.5 * samples_per_chip);
