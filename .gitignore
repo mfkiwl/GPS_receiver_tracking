@@ -1,3 +1,5 @@
 *.mat
 *.bin
+*.fig
+*.jpeg
 Task.txt
