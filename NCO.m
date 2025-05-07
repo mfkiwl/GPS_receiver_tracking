@@ -1,7 +1,7 @@
 function s = NCO (f, satellite_number, sample_rate)
-    satellites_quantity = 31;
     persistent phase_accumulator;
     if isempty (phase_accumulator)
+        satellites_quantity = 31;
         phase_accumulator = zeros (satellites_quantity, 1);
     end
 
