@@ -1,13 +1,17 @@
-function f = loop_filter (phi_new, satellite_number) % Second-order phase lock loop filter
+function f = loop_filter (phi_new, satellite_number, integrate_periods) % Second-order phase lock loop filter
     persistent memory C_1 C_2;
     if isempty (memory)
         % Execute this code for a single time to calculate filter
         % coefficients C_1 and C_2
         % K_0 * K_d = 1
-        zeta = 20; % damping ratio
-        B_L = 10000; % noise bandwidth in Hz
+        zeta = 1.5; % damping ratio
+        B_L = 100; % noise bandwidth in Hz
+
         periods_per_second = 1000;
-        T = 1 / periods_per_second; % loop filter sampling time in s
+        %sample_rate = 5115000;
+        T = integrate_periods / periods_per_second; % loop filter sampling time in s
+        %T = 1 / sample_rate;
+
         omega_n = 8 * zeta * B_L / (4 * zeta^2 + 1); % loop filter natural frequency 
         
         C_1 = 8 * zeta * omega_n * T / (4 + 4 * zeta * omega_n * T + (omega_n * T)^2);
