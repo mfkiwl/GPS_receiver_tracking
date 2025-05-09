@@ -4,7 +4,7 @@ function f = loop_filter (phi_new, satellite_number) % Second-order phase lock l
         % Execute this code for a single time to calculate filter
         % coefficients C_1 and C_2
         % K_0 * K_d = 1
-        zeta = 25; % damping ratio
+        zeta = 20; % damping ratio
         B_L = 10000; % noise bandwidth in Hz
         periods_per_second = 1000;
         T = 1 / periods_per_second; % loop filter sampling time in s
