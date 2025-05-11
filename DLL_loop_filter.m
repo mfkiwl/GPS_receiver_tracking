@@ -4,8 +4,8 @@ function shift = DLL_loop_filter (D_new, satellite_number, integrate_periods) % 
         % Execute this code for a single time to calculate filter
         % coefficients C_1 and C_2
         % K_0 * K_d = 1
-        zeta = 1.2; % damping ratio
-        B_L = 60; % noise bandwidth in Hz
+        zeta = 1; % damping ratio
+        B_L = 20; % noise bandwidth in Hz
 
         periods_per_second = 1000;
         %sample_rate = 5115000;
