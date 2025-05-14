@@ -2,5 +2,8 @@
 *.bin
 *.fig
 *.jpeg
+*.slxc
+*.log
 Task.txt
 Other_code
+slprj

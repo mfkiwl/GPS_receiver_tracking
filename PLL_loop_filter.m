@@ -4,8 +4,8 @@ function f = PLL_loop_filter (phi_new, satellite_number, integrate_periods) % Se
         % Execute this code for a single time to calculate filter
         % coefficients C_1 and C_2
         % K_0 * K_d = 1
-        zeta = 0.707; % damping ratio
-        B_L = 10; % noise bandwidth in Hz
+        zeta = 1; % damping ratio
+        B_L = 20; % noise bandwidth in Hz
 
         periods_per_second = 1000;
         %sample_rate = 5115000;
@@ -17,8 +17,8 @@ function f = PLL_loop_filter (phi_new, satellite_number, integrate_periods) % Se
         %C_1 = 8 * zeta * omega_n * T / (4 + 4 * zeta * omega_n * T + (omega_n * T)^2);
         %C_2 = 4 * (omega_n * T)^2 / (4 + 4 * zeta * omega_n * T + (omega_n * T)^2);
 
-        C_1 = ((2 * zeta / omega_n) / (0.25 / (omega_n^2))) * (1 / (2 * pi));
-        C_2 = (T / (0.25 / (omega_n^2))) * (1 / (2 * pi));
+        C_1 = 2 * zeta * omega_n / (0.25 * 2 * pi);
+        C_2 = T * omega_n^2 / (0.25 * 2 * pi);
         fprintf (1, 'PLL: C_1 = %d, C_2 = %d\n', C_1, C_2);
 
         satellites_quantity = 31;
