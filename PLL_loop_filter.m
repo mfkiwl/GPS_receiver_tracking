@@ -5,7 +5,7 @@ function f = PLL_loop_filter (phi_new, satellite_number, integrate_periods) % Se
         % coefficients C_1 and C_2
         % K_0 * K_d = 1
         zeta = 1; % damping ratio
-        B_L = 20; % noise bandwidth in Hz
+        B_L = 15; % noise bandwidth in Hz
 
         periods_per_second = 1000;
         %sample_rate = 5115000;
@@ -21,7 +21,7 @@ function f = PLL_loop_filter (phi_new, satellite_number, integrate_periods) % Se
         C_2 = T * omega_n^2 / (0.25 * 2 * pi);
         fprintf (1, 'PLL: C_1 = %d, C_2 = %d\n', C_1, C_2);
 
-        satellites_quantity = 31;
+        satellites_quantity = 32;
         memory = zeros (satellites_quantity, 1);
     end
 

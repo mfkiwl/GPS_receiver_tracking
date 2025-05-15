@@ -17,11 +17,11 @@ function shift = DLL_loop_filter (D_new, satellite_number, integrate_periods) % 
         %C_1 = 8 * zeta * omega_n * T / (4 + 4 * zeta * omega_n * T + (omega_n * T)^2);
         %C_2 = 4 * (omega_n * T)^2 / (4 + 4 * zeta * omega_n * T + (omega_n * T)^2);
 
-        C_1 = (2 * zeta / omega_n) / (1 / (omega_n^2));
-        C_2 = T / (1 / (omega_n^2));
+        C_1 = 0.5 * (2 * zeta / omega_n) / (1 / (omega_n^2));
+        C_2 = 0.5 * T / (1 / (omega_n^2));
         fprintf (1, 'DLL: C_1 = %d, C_2 = %d\n', C_1, C_2);
 
-        satellites_quantity = 31;
+        satellites_quantity = 32;
         memory = zeros (satellites_quantity, 1);
     end
 
